@@ -1,0 +1,73 @@
+body {
+  font-family: "Kiwi Maru", sans-serif;
+  background-color: #0f3785;
+  color: white;
+}
+.card {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.pfp-div {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.pfp {
+  height: 50px;
+  width: 50px;
+}
+
+.heading-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-wrapper {
+  display: auto;
+  border-radius: 10px;
+}
+
+/** Calendar styles **/
+
+.react-calendar {
+  font-family: inherit;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+.react-calendar * {
+  font-family: inherit;
+}
+
+.react-calendar__tile--now {
+  background: rgba(0, 0, 0, 0);
+}
+
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  background-color: #e6e6e6;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: black;
+}
+
+.styled-button {
+  background-color: #d9d9d9; /* Background color */
+  color: black; /* Text color */
+  border: none; /* Remove the default button border */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Text size */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Change the cursor on hover */
+}
+
+.styled-button:hover {
+  background-color: #4e88c7; /* Change the background color on hover */
+}

@@ -1,0 +1,35 @@
+body {
+    font-family: "Kiwi Maru", sans-serif;
+    background-color: #0f3785;
+    color: white;
+  }
+  .content {
+    padding: 40px 24px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .DaySelectWrapper {
+    margin-top: 20px;
+    min-height: 80px;
+    display: flex;
+    gap: 4px;
+  }
+  
+  .DaySelectWrapper button {
+    flex: 2;
+    border: none;
+    background: none;
+    border-right: 1px solid black;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  
+  .DaySelectWrapper button:last-child {
+    border: none;
+  }
+  
+  .DaySelectWrapper button:hover {
+    background-color: #eee;
+  }
+
+  
