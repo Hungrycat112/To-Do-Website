@@ -3,7 +3,7 @@ import "./Notes1.module.css"
 import Note from './Note';
 import { Link, useNavigate } from "react-router-dom";
 
-const NotesList = ({notes, handleDeleteNote, handleAddNote}) => {
+const NotesList = ({notes, handleDeleteNote, handleAddNote, handleEditNote}) => {
     const navigate = useNavigate();
 
     return (
@@ -16,6 +16,7 @@ const NotesList = ({notes, handleDeleteNote, handleAddNote}) => {
                     date={note.date}
                     color={note.color}
                     handleDeleteNote={handleDeleteNote}
+                    handleEditNote={handleEditNote}
                 />
             ))}
             <button className="add-note" 

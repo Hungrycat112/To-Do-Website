@@ -1,12 +1,34 @@
 import { useState, useEffect } from "react";
 import styles from "./Notes1.module.css";
-import { Link, useNavigate, Outlet } from "react-router-dom";
+import { Link, useNavigate, Outlet, useLocation } from "react-router-dom";
 import "./NewNotes.css"
 import NotesList from './NotesList'
 import { NavigateNextOutlined } from "@mui/icons-material";
 import {nanoid} from "nanoid";
 import NotesContext from "./Contexts/NotesContext";
 
+const mockData = [
+  {
+      text: "I love math 33A and 33B!",
+      date: "02/17/2024",
+      title: "Math",
+      color: "#b3b0fc",
+      id: nanoid()
+  },
+  {
+      text: "Eggs\nButter\nRice\n",
+      date: "02/17/2024",
+      title: "Groceries",
+      color: "#E9C3EF",
+      id: nanoid()
+  },
+  {
+      text: "Today, I am grateful for:\n\nCoffee \nFriends \nAlcohol",
+      date: "02/17/2024",
+      title: "Journal",
+      color: "#C4EFC3",
+      id: nanoid()
+  },]
 
 
 const colors = ["#C3D2EF", "#E9C3EF", "#C4EFC3", "#7CF4E5", "#b3b0fc"];
@@ -16,34 +38,11 @@ function getColor() {
 }
 
 const Notes1 = () => {
-  const [notes, setNotes] = useState([
-      {
-          text: "I love math 33A and 33B!",
-          date: "02/17/2024",
-          title: "Math",
-          color: "#b3b0fc",
-          id: nanoid()
-      },
-      {
-          text: "Eggs\nButter\nRice\n",
-          date: "02/17/2024",
-          title: "Groceries",
-          color: "#E9C3EF",
-          id: nanoid()
-      },
-      {
-          text: "Today, I am grateful for:\n\nCoffee \nFriends \nAlcohol",
-          date: "02/17/2024",
-          title: "Journal",
-          color: "#C4EFC3",
-          id: nanoid()
-      },
-      
-  ]);
+  const [notes, setNotes] = useState([]);
   const navigate = useNavigate();
   const [searchText, setSearchText] = useState('');
   
-  const addNote = (text,title) => {
+  const addNote = (text,title, editing) => {
     const date = new Date();
     const newNote = {
       text:text,
@@ -52,14 +51,34 @@ const Notes1 = () => {
       title: title,
       color: getColor()
     }
-    const newNotes = [...notes, newNote];
+    const newNotes = [newNote, ...notes ];
     setNotes(newNotes)
-
   }
 
+  
   const deleteNote = (id) => {
     const newNotes = notes.filter((note)=>note.id !== id)
     setNotes(newNotes);
+  }
+
+  const editNote =(id) => {
+    const selectedNote = notes.filter((note)=>note.id === id);
+    navigate("/Notes1/newnotes", { state: { selectedNote: selectedNote } })
+  }
+  
+  const saveEditedNote = (text,title, id) => {
+    const date = new Date()
+    const newNote = {
+      text:text,
+      date: date.toLocaleDateString(),
+      id: id,
+      title: title,
+      color: getColor()
+    }
+    const newNotes = notes.filter((note)=>note.id !== id)
+    const editedNotes = [newNote, ...newNotes ];
+    setNotes(editedNotes);
+
   }
 
   useEffect(()=> {
@@ -90,7 +109,7 @@ const Notes1 = () => {
         {" "}
         Notes
       </div>
-      <Outlet context={{ addNote, deleteNote, notes, searchText, setSearchText}}/>  
+      <Outlet context={{ addNote, deleteNote, editNote, saveEditedNote, notes, searchText, setSearchText}}/>  
       <Link to="/">
         <button className={styles.HomeButton}> {"<"} Back to Menu</button>
       </Link>

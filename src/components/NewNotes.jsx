@@ -1,6 +1,6 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import {nanoid} from "nanoid";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext, useLocation } from "react-router-dom";
 
 import "./NewNotes.css"
 import NotesList from './NotesList'
@@ -18,18 +18,30 @@ import LockIcon from '@mui/icons-material/Lock';
 const NewNotes = () => {
     const [noteTitle, setNoteTitle] = useState('');
     const [noteText, setNoteText] = useState('');
-    const { addNote, deleteNote, notes, searchText, setSearchText } = useOutletContext();
-    const characterLimit = 500;
+    const [noteId, setNoteId] = useState('')
+    const [editing, setEditing] = useState(false);
+    const { addNote, deleteNote, editNote, saveEditedNote, notes, searchText, setSearchText } = useOutletContext();
+    const characterLimit = 250;
     const titleLimit = 35;
     const navigate = useNavigate();
+    const location = useLocation();
+
+
+    useEffect(() => {
+        if (location.state !== null) {
+            const selectedNote = location.state["selectedNote"];
+            setNoteTitle(selectedNote[0].title);
+            setNoteText(selectedNote[0].text);
+            setNoteId(selectedNote[0].id);
+            setEditing(true);
+        }
+    }, [])
+
     
-
-
     const handleChangeTitle = (event) => {
         if (titleLimit-event.target.value.length >=0) {
             setNoteTitle(event.target.value)
         }
-        
     }
 
     const handleChangeText = (event) => {
@@ -40,10 +52,14 @@ const NewNotes = () => {
 
     const handleSaveClick = () => {
         console.log("Save button clicked");
-        if (noteText.trim().length > 0) { // Check if noteText is not just empty spaces
-            addNote(noteText, noteTitle);
+        if (editing) {
+            saveEditedNote(noteText, noteTitle, noteId)
+            navigate(-1)
+        } else if (noteText.trim().length > 0) {
+            addNote(noteText, noteTitle, editing);
             navigate(-1); // Optionally navigate back after saving
         }
+        
     }
 
     return (
@@ -66,7 +82,10 @@ const NewNotes = () => {
                     rows='1'
                     maxLength={titleLimit}
                     onChange={handleChangeTitle}
-                />
+                    value={noteTitle}
+                    >
+                </textarea>
+                
                 <div className="note-body">
                     <textarea 
                         style={{
@@ -80,6 +99,7 @@ const NewNotes = () => {
                         rows='25'
                         placeholder="Type to add a note..."
                         maxLength={characterLimit}
+                        value={noteText}
                     />
                 </div>
                 

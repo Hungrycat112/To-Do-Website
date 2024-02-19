@@ -3,7 +3,7 @@ import "./Note.css";
 import { TextField } from "@mui/material";
 import CreateIcon from '@mui/icons-material/Create';
 
-const Note = ({id, text, title, date, color, handleDeleteNote}) => {
+const Note = ({id, text, title, date, color, handleDeleteNote, handleEditNote}) => {
     return (
         <div className="note" style={{backgroundColor: color }}>
             <div className='upper-note'>
@@ -14,7 +14,7 @@ const Note = ({id, text, title, date, color, handleDeleteNote}) => {
                 <small className='date'>{date}</small>
 
             <div>
-                <CreateIcon/>
+                <CreateIcon className='edit-icon' onClick={()=>handleEditNote(id)} />
                 <DeleteIcon className='delete-icon' onClick={()=>handleDeleteNote(id)}/>
             </div>
                 

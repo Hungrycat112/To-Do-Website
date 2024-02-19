@@ -44,6 +44,11 @@
     color: rgb(71, 70, 70);
 }
 
+.edit-icon:hover {
+    cursor:pointer;
+    color: rgb(71, 70, 70);
+}
+
 .date {
     font-size: 10px;
  }
