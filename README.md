@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Productivity App
 
 Welcome to our productivity app! The website comes equipped with home page, a notes page, a goals page, and the ability to create your own tasks to complete! The notes section is currently complete and saved to local storage, so feel free to use it!
 
