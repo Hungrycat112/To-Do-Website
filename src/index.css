@@ -26,3 +26,24 @@ button {
   max-width: 640px;
   margin: 0 auto;
 }
+
+.search {
+  display: flex;
+  align-items: center;
+  color: black;
+  border-radius: 20px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.search input {
+  border: none;
+  background-color: aliceblue;
+  width: 1000px;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.search input:focus {
+  outline: none;
+}

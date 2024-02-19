@@ -1,0 +1,49 @@
+.note {
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 1rem;
+    padding-bottom: 0.25rem;
+    white-space: pre-wrap;
+    color: black;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.upper-note {
+    display:flex;
+    flex-direction: column;
+}
+
+.note-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-note {
+    background-color: rgb(226, 198, 252);
+    display: block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 170px;
+    color: black;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.add-note:hover {
+    background-color: #9290ce;
+  }
+
+.delete-icon:hover {
+    cursor:pointer;
+    color: rgb(71, 70, 70);
+}
+
+.date {
+    font-size: 10px;
+ }

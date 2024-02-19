@@ -4,7 +4,8 @@ import Goals from "./Goals";
 import NewGoals from "./NewGoals";
 import CustomGoalPage from "./CustomGoalPage";
 import Notes1 from "./Notes1"
-import Newnotes from "./NewNotes"
+import NewNotes from "./NewNotes"
+import NotesGrid from "./NotesGrid"
 
 const router = createBrowserRouter([
   {
@@ -26,11 +27,21 @@ const router = createBrowserRouter([
   {
     path: "/notes1",
     element: <Notes1 />,
+    children: [
+      {
+        path: "newnotes",
+        element: <NewNotes />
+      },
+      {
+        path: "notes-grid",
+        element: <NotesGrid />
+      }
+    ]
   },
-  {
-    path: "./newnotes",
-    element: <Newnotes />,
-  }
+  // {
+  //   path: "/newnotes",
+  //   element: <NewNotes />,
+  // }
 ]);
 
 export default function Root() {

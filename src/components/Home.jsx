@@ -11,7 +11,7 @@ function Home() {
   const formatShortWeekday = (locale, date) => {
     return date.toString().charAt(0);
   };
-
+  const currentDate = new Date();
   return (
     <div className="App">
       <h4
@@ -25,10 +25,13 @@ function Home() {
         <div className="lefttext-div">
           <div
             style={{
-              fontSize: "10px",
+              fontSize: "12px",
             }}
           >
-            1st January, 2023
+            {currentDate.toLocaleDateString('en-US', {
+              day: '2-digit',
+              month: 'long',
+              year: 'numeric',})}
           </div>
           <div
             style={{
@@ -36,7 +39,7 @@ function Home() {
               width: "200px",
             }}
           >
-            Hello, Name
+            Hello, World!
           </div>
         </div>
         <div
@@ -92,7 +95,7 @@ function Home() {
       <Link to={"/goals"}>
         <button class="styled-button">Goals!</button>
       </Link>
-      <Link to={"/Notes1"}>
+      <Link to={"/Notes1/notes-grid"}>
         <button class="styled-button">Notes</button>
       </Link>
     </div>

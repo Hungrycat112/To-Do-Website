@@ -12,8 +12,8 @@ function App() {
       {page === 'goals' ? <Goals /> : null}
 
       {/* Nav */}
-      <button class="styled-button" onClick={() => setPage('goals')}>Goals!</button>
-      <button class="styled-button" onClick={() => setPage('home')}>Home</button>
+      <button className="styled-button" onClick={() => setPage('goals')}>Goals!</button>
+      <button className="styled-button" onClick={() => setPage('home')}>Home</button>
     </>
   )
 }
