@@ -66,7 +66,7 @@ const NewNotes = () => {
         <div className="added-note-container">
             <div className="new-note-header">
                 <div className="header-left">
-                    <ArrowBackIosIcon className="arrow-back" onClick={()=>navigate(-1)} />
+                    <ArrowBackIosIcon className="arrow-back" onClick={()=>navigate("/Notes1/notes-grid")} />
                 </div>
                 <div className="header-right">
                     <LockIcon/>
