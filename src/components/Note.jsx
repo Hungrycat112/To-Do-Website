@@ -12,7 +12,7 @@ const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 420,
+    width: 350,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -30,6 +30,7 @@ const Note = ({id, text, title, date, color, handleDeleteNote, handleEditNote}) 
         handleClose();
         handleDeleteNote(id);
     }
+
     return (
         <div className="note" style={{backgroundColor: color }}>
             <div className='upper-note'>
@@ -49,11 +50,17 @@ const Note = ({id, text, title, date, color, handleDeleteNote, handleEditNote}) 
                     aria-describedby="modal-modal-description"
                     >
                     <Box sx={style}>
-                        <Typography id="modal-modal-title" variant="h6" component="h2" color="black" fontFamily={"Kiwi Maru"}>
-                        Are you sure you want to delete?
-                        </Typography>
-                        <button className='delete-confirm' onClick={()=>deleteConfirm()}>Yes</button>
-                        <button className='delete-deny' onClick={handleClose}>No</button>
+                        <div className='delete-modal-text'>
+                            <Typography id="modal-modal-title" variant="h6" component="h2" color="black" fontFamily={"Kiwi Maru"} textAlign='center' >
+                            Are you sure you want to delete?
+                            </Typography>
+                        </div>
+                        
+                        <div className='delete-buttons'>
+                            <button className='delete-confirm' onClick={()=>deleteConfirm()}>Yes</button>
+                            <button className='delete-deny' onClick={handleClose}>No</button>
+                        </div>
+                        
                     </Box>
                     </Modal>
             </div>

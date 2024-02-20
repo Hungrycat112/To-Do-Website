@@ -58,7 +58,7 @@
     border: none;
     border-radius: 8px;
     padding: 5px 10px 5px 10px;
-    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 20px;
     width: 70px;
     height: 35px;
@@ -69,8 +69,18 @@
     border: none;
     border-radius: 8px;
     padding: 5px 10px 5px 10px;
-    margin-left: 20px;
+    margin-left: 10px;
     margin-top: 20px;
     width: 70px;
     height: 35px;
+}
+
+.delete-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-modal-text {
+    display:flex;
+    justify-content: center;
 }

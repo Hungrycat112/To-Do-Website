@@ -10,7 +10,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import DeleteIcon from '@mui/icons-material/Delete';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import CreateIcon from '@mui/icons-material/Create';
-import LockIcon from '@mui/icons-material/Lock';
+
 
 
 
@@ -69,7 +69,6 @@ const NewNotes = () => {
                     <ArrowBackIosIcon className="arrow-back" onClick={()=>navigate("/Notes1/notes-grid")} />
                 </div>
                 <div className="header-right">
-                    <LockIcon/>
                     <CreateIcon/>
                     <BookmarkBorderIcon/>
                     <DeleteIcon/>   

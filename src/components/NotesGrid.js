@@ -7,6 +7,17 @@ const NotesGrid = () => {
 
     return (
         <div className="grid-container">
+                <div
+                    style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    fontSize: "50px",
+                    color: 'black',
+                    }}
+                 >
+            {" "}
+            Notes
+            </div>
             <Search handleSearchNote={setSearchText}/>
             <NotesList 
               notes={notes.filter((note)=>note.title.toLowerCase().includes(searchText.toLowerCase()))} 

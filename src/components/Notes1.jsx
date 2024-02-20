@@ -99,16 +99,6 @@ const Notes1 = () => {
   
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          fontSize: "50px",
-        }}
-      >
-        {" "}
-        Notes
-      </div>
       <Outlet context={{ addNote, deleteNote, editNote, saveEditedNote, notes, searchText, setSearchText}}/>  
       <Link to="/">
         <button className={styles.HomeButton}> {"<"} Back to Menu</button>
