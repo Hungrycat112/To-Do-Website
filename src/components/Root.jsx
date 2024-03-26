@@ -6,6 +6,7 @@ import CustomGoalPage from "./CustomGoalPage";
 import Notes1 from "./Notes1"
 import NewNotes from "./NewNotes"
 import NotesGrid from "./NotesGrid"
+import Pomodoro from "./Pomo";
 
 const router = createBrowserRouter([
   {
@@ -38,16 +39,14 @@ const router = createBrowserRouter([
       }
     ]
   },
-  // {
-  //   path: "/newnotes",
-  //   element: <NewNotes />,
-  // }
+  {
+    path: "/pomo",
+    element: <Pomodoro />,
+  }
 ]);
 
 export default function Root() {
   return (
-    <main className={"page-container"}>
-      <RouterProvider router={router} />
-    </main>
+    <RouterProvider router={router} />
   );
 }

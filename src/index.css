@@ -21,12 +21,6 @@ button {
   font-family: inherit;
 }
 
-.page-container {
-  padding: 40px 24px;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
 .search {
   display: flex;
   align-items: center;
@@ -46,4 +40,20 @@ button {
 
 .search input:focus {
   outline: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.header, .footer {
+  flex: 0 1;
+}
+
+.content {
+  flex: 1;
 }

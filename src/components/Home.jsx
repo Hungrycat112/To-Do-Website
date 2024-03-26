@@ -13,92 +13,104 @@ function Home() {
   };
   const currentDate = new Date();
   return (
-    <div className="App">
-      <h4
-        style={{
-          textAlign: "center",
-        }}
-      >
-        My Calendar
-      </h4>
-      <div className="heading-div" style={{}}>
-        <div className="lefttext-div">
-          <div
-            style={{
-              fontSize: "12px",
-            }}
-          >
-            {currentDate.toLocaleDateString('en-US', {
-              day: '2-digit',
-              month: 'long',
-              year: 'numeric',})}
-          </div>
-          <div
-            style={{
-              fontSize: "24px",
-              width: "200px",
-            }}
-          >
-            Hello, World!
-          </div>
-        </div>
-        <div
-          className="pfp-div"
-          style={{ minHeight: "24px", backgroundColor: "white" }}
+    <>
+      <div className="content">
+        <h4
+          style={{
+            textAlign: "center",
+          }}
         >
-          <img className="pfp" src={logo} />
+          My Calendar
+        </h4>
+        <div className="heading-div" style={{}}>
+          <div className="lefttext-div">
+            <div
+              style={{
+                fontSize: "12px",
+              }}
+            >
+              {currentDate.toLocaleDateString('en-US', {
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </div>
+            <div
+              style={{
+                fontSize: "24px",
+                width: "200px",
+              }}
+            >
+              Hello, World!
+            </div>
+          </div>
+          <div
+            className="pfp-div"
+            style={{ minHeight: "24px", backgroundColor: "white" }}
+          >
+            <img className="pfp" src={logo} />
+          </div>
         </div>
-      </div>
-      <div
-        style={{
-          marginTop: "8px",
-          display: "flex",
-          justifyContent: "center",
-        }}
-        className="card"
-      >
-        <Calendar formatShortWeekday={formatShortWeekday} />
-      </div>
-      <div className="card-wrapper">
         <div
           style={{
-            minHeight: "80px",
-            marginTop: "28px",
-            marginBottom: "10px",
+            marginTop: "8px",
             display: "flex",
-            alighItems: "center",
-            gap: "4px",
+            justifyContent: "center",
           }}
           className="card"
         >
-          <img src={checklist_logo} style={{ height: "26px" }} /> Tasks to Do
-          Today
+          <Calendar formatShortWeekday={formatShortWeekday} />
+        </div>
+        <div className="card-wrapper">
+          <div
+            style={{
+              minHeight: "80px",
+              marginTop: "28px",
+              marginBottom: "10px",
+              display: "flex",
+              alighItems: "center",
+              gap: "4px",
+            }}
+            className="card"
+          >
+            <img src={checklist_logo} style={{ height: "26px" }} /> Tasks to Do
+            Today
+          </div>
+        </div>
+
+        <div className="card-wrapper">
+          <div
+            style={{
+              minHeight: "80px",
+              marginTop: "28px",
+              marginBottom: "10px",
+              display: "flex",
+              alighItems: "center",
+              gap: "4px",
+            }}
+            className="card"
+          >
+            <img src={goals_logo} style={{ height: "26px" }} /> Goals to Reach
+          </div>
         </div>
       </div>
 
-      <div className="card-wrapper">
-        <div
-          style={{
-            minHeight: "80px",
-            marginTop: "28px",
-            marginBottom: "10px",
-            display: "flex",
-            alighItems: "center",
-            gap: "4px",
-          }}
-          className="card"
-        >
-          <img src={goals_logo} style={{ height: "26px" }} /> Goals to Reach
-        </div>
+      <div className="footer">
+        <Link to={"/goals"}>
+          <button class="styled-button style=" style={{
+            marginRight: 12
+          }}>Goals!</button>
+        </Link>
+        <Link to={"/Notes1/notes-grid"}>
+          <button class="styled-button" style={{
+            marginRight: 12
+          }}>Notes</button>
+        </Link>
+        <Link to={"/pomo"}>
+          <button class="styled-button">Pomodoro</button>
+        </Link>
       </div>
-
-      <Link to={"/goals"}>
-        <button class="styled-button">Goals!</button>
-      </Link>
-      <Link to={"/Notes1/notes-grid"}>
-        <button class="styled-button">Notes</button>
-      </Link>
-    </div>
+    </>
   );
 }
 
